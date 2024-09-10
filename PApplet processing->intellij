@@ -1,0 +1,69 @@
+import processing.core.*;
+
+public class Main extends PApplet {
+
+    Ball ball01;
+    Ball ball02;
+
+    public void settings() {
+        size(300, 300);
+
+        ball01 = new Ball(this);
+        ball02 = new Ball(this, 30, 30, 20);
+    }
+
+    public void draw() {
+        background(0);
+        ball01.move();
+        ball01.drawBall();
+
+        ball02.move();
+        ball02.drawBall();
+    }
+
+    public void mousePressed(){
+        background(64);
+    }
+
+    public static void main(String[] args) {
+        PApplet.main("Main");
+    }
+}
+
+
+public class Ball {
+
+PApplet papplet;
+
+    private float xPos;
+    private float yPos;
+    private float diameter;
+
+    public Ball(PApplet papplet) {
+        this.papplet = papplet;
+        xPos = 50;
+        yPos = 50;
+        diameter = 30;
+    }
+
+    public Ball(PApplet papplet, float pXPos, float pYPos, float pDiameter) {
+        this.papplet = papplet;
+        xPos = pXPos;
+        yPos = pYPos;
+        diameter = pDiameter;
+    }
+
+    public Ball(PApplet papplet, float pXPos, float pYPos) {
+        this.papplet = papplet;
+        xPos = pXPos;
+        yPos = pYPos;
+    }
+
+    public void drawBall() {
+        papplet.circle(xPos, yPos, diameter);
+    }
+
+    public void move() {
+        xPos++;
+    }
+}
