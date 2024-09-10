@@ -7,3 +7,51 @@ public class Main {
     kuehlware01.preisRabatt();
     }
 }
+
+
+public class Ware {
+    protected String name;
+    protected double preis;
+
+    public Ware (String name, double preis) {
+        this.name = name;
+        this.preis = preis;
+    }
+
+    public String getName() {
+    return name;
+    }
+
+    public double getPreis() {
+        return preis;
+    }
+
+    public void setPreis (double preis) {
+        this.preis=preis;
+    }
+    public String gibInformationen() {
+        return name+preis;
+    }
+
+    public void preisRabatt() {
+        double x;
+        x=preis/2;
+        System.out.println("Preiserlass um 50% für " + name+"="+preis+"€! Neuer Preis="+x+"€!");
+    }
+}
+
+
+public class Kuehlware extends Ware{
+    protected int temperatur;
+    protected int mhd;
+    public Kuehlware(String name, double preis, int temperatur, int mhd){
+        super(name,preis);
+        this.temperatur=temperatur;
+        this.mhd=mhd;
+    }
+    public void preisRabatt() {
+        double x;
+        x=preis*0.2;
+        System.out.println("Preiserlass um 80% für "+name+"="+preis+"€! Neuer Preis="+x+"€!");
+    }
+}
