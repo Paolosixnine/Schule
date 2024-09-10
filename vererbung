@@ -1,0 +1,9 @@
+public class Main {
+    public static void main(String[] args) {
+    Ware ware01 = new Ware("apfel",6);
+    Kuehlware kuehlware01 = new Kuehlware("Milch",10,5,01012026);
+    System.out.println(kuehlware01.getName());
+    ware01.preisRabatt();
+    kuehlware01.preisRabatt();
+    }
+}
